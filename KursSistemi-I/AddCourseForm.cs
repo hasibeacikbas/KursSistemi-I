@@ -15,24 +15,30 @@ namespace KursSistemi_I
     public partial class AddCourseForm : Form
     {
 
-        CourseOtomationEntities2 CourseOtomation;
+        CourseOtomationEntities2 CourseOtomationEntities;
         public AddCourseForm()
         {
             InitializeComponent();
-            LoadDataLessons();
-            LoadDataTeachers();
+           
         }
 
         private void LoadDataLessons()
         {
-            CourseOtomation = new CourseOtomationEntities2();
-            lessonNameComBox.DataSource = CourseOtomation.Lesson.ToList();
+            CourseOtomationEntities = new CourseOtomationEntities2();
+            lessonNameComBox.DataSource = CourseOtomationEntities.Lesson.ToList();
             lessonNameComBox.ValueMember = "LessonID";
             lessonNameComBox.DisplayMember = "Name";
         }
         private void LoadDataTeachers()
         {
-             
+            CourseOtomationEntities = new CourseOtomationEntities2();
+            bool control;
+            int lessonid;
+            control = int.TryParse(lessonNameComBox.SelectedValue.ToString(), out lessonid);
+            teacherNameComBox.DataSource = CourseOtomationEntities.Teacher.Where(x => x.Lesson == lessonid).ToList(); ;
+            teacherNameComBox.ValueMember = "TeacherID";
+            teacherNameComBox.DisplayMember = "Name";
+            
         }
 
 
@@ -46,18 +52,22 @@ namespace KursSistemi_I
 
             //IQueryable<Lessons> list = connection.Lessons.where(lesson => lesson.Id >5);
 
-           // SqlDataAdapter lessonListDA = new SqlDataAdapter("Select * From Lesson",connection);
+            // SqlDataAdapter lessonListDA = new SqlDataAdapter("Select * From Lesson",connection);
             //DataTable lessonListDT = new DataTable();
             //lessonListDA.Fill(lessonListDT);
             //lessonNameComBox.ValueMember = "DersNo";
-            
+
             //lessonNameComBox.DisplayMember = "Ad";
             //lessonNameComBox.DataSource = lessonListDT;
+
+                
+            
 
         }
         private void AddCourseForm_Load(object sender, EventArgs e)
         {
-            LessonList();
+            LoadDataLessons();
+            LoadDataTeachers();
         }
         private void label1_Click(object sender, EventArgs e)
         {
@@ -97,7 +107,15 @@ namespace KursSistemi_I
             //teacherNameComBox.ValueMember = "OgretmenNo";
             //teacherNameComBox.DisplayMember = "Ad";
             //teacherNameComBox.DataSource = teacherListDT;
-          
+            //List<Lesson> lessons = CourseOtomationEntities.Lesson.ToList();
+
+            //IQueryable<Lessons> list = connection.Lessons.where(lesson => lesson.Id >5); 
+            //List<Teacher> teachers = CourseOtomationEntities.Teacher
+            LoadDataTeachers();
+
+
+
+
         }
 
         private void createEtude_Click(object sender, EventArgs e)
