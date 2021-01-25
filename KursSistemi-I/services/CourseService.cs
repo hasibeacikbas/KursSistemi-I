@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KursSistemi_I.services
 {
-    class CourseService
+    public class CourseService
     {
         CourseOtomationEntities2 courseOtomationEntitiesCourse;
         public CourseService()

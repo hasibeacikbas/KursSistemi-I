@@ -24,7 +24,8 @@ namespace KursSistemi_I
 
         private void AddTeachersForm_Load(object sender, EventArgs e)
         {
-           
+            
+
         }
 
         private void teacherAddBtn_Click(object sender, EventArgs e)

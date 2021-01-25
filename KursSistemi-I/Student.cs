@@ -28,5 +28,9 @@ namespace KursSistemi_I
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Course> Course { get; set; }
+        public string FullName
+        {
+            get { return Name + " " + Surname; }
+        }
     }
 }

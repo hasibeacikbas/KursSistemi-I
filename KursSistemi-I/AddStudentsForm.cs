@@ -71,6 +71,7 @@ namespace KursSistemi_I
         private void studentListBtn_Click(object sender, EventArgs e)
         {
             studentDataTableGridView.DataSource = studentService.getStudents();
+            
             textBoxClear();
         }
 

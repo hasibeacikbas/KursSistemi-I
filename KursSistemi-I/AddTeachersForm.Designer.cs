@@ -29,7 +29,11 @@ namespace KursSistemi_I
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.teacherUpdtBtn = new System.Windows.Forms.Button();
+            this.teacherListBtn = new System.Windows.Forms.Button();
+            this.teacherClrBtn = new System.Windows.Forms.Button();
             this.lessonTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.teacherPhoneNumberTxt = new System.Windows.Forms.MaskedTextBox();
@@ -45,12 +49,20 @@ namespace KursSistemi_I
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.teacherDataTableGridView = new System.Windows.Forms.DataGridView();
-            this.teacherClrBtn = new System.Windows.Forms.Button();
-            this.teacherListBtn = new System.Windows.Forms.Button();
-            this.teacherUpdtBtn = new System.Windows.Forms.Button();
+            this.courseOtomationDataSet = new KursSistemi_I.CourseOtomationDataSet();
+            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherTableAdapter = new KursSistemi_I.CourseOtomationDataSetTableAdapters.TeacherTableAdapter();
+            this.ogretmenNoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.soyadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teacherDataTableGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseOtomationDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -80,6 +92,42 @@ namespace KursSistemi_I
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
+            // teacherUpdtBtn
+            // 
+            this.teacherUpdtBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.teacherUpdtBtn.Location = new System.Drawing.Point(457, 238);
+            this.teacherUpdtBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.teacherUpdtBtn.Name = "teacherUpdtBtn";
+            this.teacherUpdtBtn.Size = new System.Drawing.Size(168, 50);
+            this.teacherUpdtBtn.TabIndex = 16;
+            this.teacherUpdtBtn.Text = "Güncelle";
+            this.teacherUpdtBtn.UseVisualStyleBackColor = true;
+            this.teacherUpdtBtn.Click += new System.EventHandler(this.teacherUpdtBtn_Click);
+            // 
+            // teacherListBtn
+            // 
+            this.teacherListBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.teacherListBtn.Location = new System.Drawing.Point(457, 169);
+            this.teacherListBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.teacherListBtn.Name = "teacherListBtn";
+            this.teacherListBtn.Size = new System.Drawing.Size(168, 50);
+            this.teacherListBtn.TabIndex = 15;
+            this.teacherListBtn.Text = "Listele";
+            this.teacherListBtn.UseVisualStyleBackColor = true;
+            this.teacherListBtn.Click += new System.EventHandler(this.teacherListBtn_Click);
+            // 
+            // teacherClrBtn
+            // 
+            this.teacherClrBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.teacherClrBtn.Location = new System.Drawing.Point(457, 98);
+            this.teacherClrBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.teacherClrBtn.Name = "teacherClrBtn";
+            this.teacherClrBtn.Size = new System.Drawing.Size(168, 50);
+            this.teacherClrBtn.TabIndex = 14;
+            this.teacherClrBtn.Text = "Sil";
+            this.teacherClrBtn.UseVisualStyleBackColor = true;
+            this.teacherClrBtn.Click += new System.EventHandler(this.teacherClrBtn_Click);
+            // 
             // lessonTxt
             // 
             this.lessonTxt.Location = new System.Drawing.Point(169, 255);
@@ -96,7 +144,7 @@ namespace KursSistemi_I
             this.label5.Location = new System.Drawing.Point(8, 255);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 26);
+            this.label5.Size = new System.Drawing.Size(53, 22);
             this.label5.TabIndex = 12;
             this.label5.Text = "Ders:";
             // 
@@ -161,7 +209,7 @@ namespace KursSistemi_I
             this.studentIDLbl.Location = new System.Drawing.Point(8, 213);
             this.studentIDLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.studentIDLbl.Name = "studentIDLbl";
-            this.studentIDLbl.Size = new System.Drawing.Size(149, 26);
+            this.studentIDLbl.Size = new System.Drawing.Size(122, 22);
             this.studentIDLbl.TabIndex = 4;
             this.studentIDLbl.Text = "Öğretmen No:";
             // 
@@ -172,7 +220,7 @@ namespace KursSistemi_I
             this.label4.Location = new System.Drawing.Point(8, 170);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 26);
+            this.label4.Size = new System.Drawing.Size(47, 22);
             this.label4.TabIndex = 3;
             this.label4.Text = "Mail:";
             // 
@@ -183,7 +231,7 @@ namespace KursSistemi_I
             this.label3.Location = new System.Drawing.Point(8, 128);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 26);
+            this.label3.Size = new System.Drawing.Size(76, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Telefon:";
             // 
@@ -194,7 +242,7 @@ namespace KursSistemi_I
             this.label2.Location = new System.Drawing.Point(8, 89);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 26);
+            this.label2.Size = new System.Drawing.Size(66, 22);
             this.label2.TabIndex = 1;
             this.label2.Text = "Soyad:";
             // 
@@ -205,7 +253,7 @@ namespace KursSistemi_I
             this.label1.Location = new System.Drawing.Point(8, 49);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 26);
+            this.label1.Size = new System.Drawing.Size(37, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ad:";
             // 
@@ -223,9 +271,18 @@ namespace KursSistemi_I
             // 
             // teacherDataTableGridView
             // 
+            this.teacherDataTableGridView.AutoGenerateColumns = false;
             this.teacherDataTableGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.teacherDataTableGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.teacherDataTableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.teacherDataTableGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ogretmenNoDataGridViewTextBoxColumn,
+            this.adDataGridViewTextBoxColumn,
+            this.soyadDataGridViewTextBoxColumn,
+            this.telefonDataGridViewTextBoxColumn,
+            this.mailDataGridViewTextBoxColumn,
+            this.dersDataGridViewTextBoxColumn});
+            this.teacherDataTableGridView.DataSource = this.teacherBindingSource;
             this.teacherDataTableGridView.Location = new System.Drawing.Point(8, 23);
             this.teacherDataTableGridView.Margin = new System.Windows.Forms.Padding(4);
             this.teacherDataTableGridView.Name = "teacherDataTableGridView";
@@ -234,41 +291,56 @@ namespace KursSistemi_I
             this.teacherDataTableGridView.Size = new System.Drawing.Size(797, 228);
             this.teacherDataTableGridView.TabIndex = 0;
             // 
-            // teacherClrBtn
+            // courseOtomationDataSet
             // 
-            this.teacherClrBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.teacherClrBtn.Location = new System.Drawing.Point(457, 98);
-            this.teacherClrBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.teacherClrBtn.Name = "teacherClrBtn";
-            this.teacherClrBtn.Size = new System.Drawing.Size(168, 50);
-            this.teacherClrBtn.TabIndex = 14;
-            this.teacherClrBtn.Text = "Sil";
-            this.teacherClrBtn.UseVisualStyleBackColor = true;
-            this.teacherClrBtn.Click += new System.EventHandler(this.teacherClrBtn_Click);
+            this.courseOtomationDataSet.DataSetName = "CourseOtomationDataSet";
+            this.courseOtomationDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // teacherListBtn
+            // teacherBindingSource
             // 
-            this.teacherListBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.teacherListBtn.Location = new System.Drawing.Point(457, 169);
-            this.teacherListBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.teacherListBtn.Name = "teacherListBtn";
-            this.teacherListBtn.Size = new System.Drawing.Size(168, 50);
-            this.teacherListBtn.TabIndex = 15;
-            this.teacherListBtn.Text = "Listele";
-            this.teacherListBtn.UseVisualStyleBackColor = true;
-            this.teacherListBtn.Click += new System.EventHandler(this.teacherListBtn_Click);
+            this.teacherBindingSource.DataMember = "Teacher";
+            this.teacherBindingSource.DataSource = this.courseOtomationDataSet;
             // 
-            // teacherUpdtBtn
+            // teacherTableAdapter
             // 
-            this.teacherUpdtBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.teacherUpdtBtn.Location = new System.Drawing.Point(457, 238);
-            this.teacherUpdtBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.teacherUpdtBtn.Name = "teacherUpdtBtn";
-            this.teacherUpdtBtn.Size = new System.Drawing.Size(168, 50);
-            this.teacherUpdtBtn.TabIndex = 16;
-            this.teacherUpdtBtn.Text = "Güncelle";
-            this.teacherUpdtBtn.UseVisualStyleBackColor = true;
-            this.teacherUpdtBtn.Click += new System.EventHandler(this.teacherUpdtBtn_Click);
+            this.teacherTableAdapter.ClearBeforeFill = true;
+            // 
+            // ogretmenNoDataGridViewTextBoxColumn
+            // 
+            this.ogretmenNoDataGridViewTextBoxColumn.DataPropertyName = "OgretmenNo";
+            this.ogretmenNoDataGridViewTextBoxColumn.HeaderText = "OgretmenNo";
+            this.ogretmenNoDataGridViewTextBoxColumn.Name = "ogretmenNoDataGridViewTextBoxColumn";
+            this.ogretmenNoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // adDataGridViewTextBoxColumn
+            // 
+            this.adDataGridViewTextBoxColumn.DataPropertyName = "Ad";
+            this.adDataGridViewTextBoxColumn.HeaderText = "Ad";
+            this.adDataGridViewTextBoxColumn.Name = "adDataGridViewTextBoxColumn";
+            // 
+            // soyadDataGridViewTextBoxColumn
+            // 
+            this.soyadDataGridViewTextBoxColumn.DataPropertyName = "Soyad";
+            this.soyadDataGridViewTextBoxColumn.HeaderText = "Soyad";
+            this.soyadDataGridViewTextBoxColumn.Name = "soyadDataGridViewTextBoxColumn";
+            // 
+            // telefonDataGridViewTextBoxColumn
+            // 
+            this.telefonDataGridViewTextBoxColumn.DataPropertyName = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.HeaderText = "Telefon";
+            this.telefonDataGridViewTextBoxColumn.Name = "telefonDataGridViewTextBoxColumn";
+            // 
+            // mailDataGridViewTextBoxColumn
+            // 
+            this.mailDataGridViewTextBoxColumn.DataPropertyName = "Mail";
+            this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
+            this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
+            // 
+            // dersDataGridViewTextBoxColumn
+            // 
+            this.dersDataGridViewTextBoxColumn.DataPropertyName = "Ders";
+            this.dersDataGridViewTextBoxColumn.HeaderText = "Ders";
+            this.dersDataGridViewTextBoxColumn.Name = "dersDataGridViewTextBoxColumn";
             // 
             // AddTeachersForm
             // 
@@ -286,6 +358,8 @@ namespace KursSistemi_I
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.teacherDataTableGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.courseOtomationDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -311,5 +385,14 @@ namespace KursSistemi_I
         private System.Windows.Forms.Button teacherUpdtBtn;
         private System.Windows.Forms.Button teacherListBtn;
         private System.Windows.Forms.Button teacherClrBtn;
+        private CourseOtomationDataSet courseOtomationDataSet;
+        private System.Windows.Forms.BindingSource teacherBindingSource;
+        private CourseOtomationDataSetTableAdapters.TeacherTableAdapter teacherTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ogretmenNoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn soyadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dersDataGridViewTextBoxColumn;
     }
 }

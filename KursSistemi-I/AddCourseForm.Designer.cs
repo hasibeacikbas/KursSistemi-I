@@ -30,6 +30,7 @@ namespace KursSistemi_I
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.createEtude = new System.Windows.Forms.Button();
             this.teacherNameComBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,24 +40,23 @@ namespace KursSistemi_I
             this.clockTxt = new System.Windows.Forms.MaskedTextBox();
             this.lessonNameComBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.etudeDetail = new System.Windows.Forms.Button();
-            this.cancelCheckBox = new System.Windows.Forms.CheckBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.CourseDataGridView = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.etudeGive = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.EtudeID = new System.Windows.Forms.TextBox();
+            this.studentEtudeComBox = new System.Windows.Forms.ComboBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CourseDataGridView)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.createEtude);
             this.groupBox1.Controls.Add(this.teacherNameComBox);
             this.groupBox1.Controls.Add(this.label2);
@@ -73,9 +73,19 @@ namespace KursSistemi_I
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(238, 233);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(180, 37);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "deneme";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // createEtude
             // 
-            this.createEtude.Location = new System.Drawing.Point(129, 236);
+            this.createEtude.Location = new System.Drawing.Point(52, 233);
             this.createEtude.Name = "createEtude";
             this.createEtude.Size = new System.Drawing.Size(180, 37);
             this.createEtude.TabIndex = 1;
@@ -160,94 +170,6 @@ namespace KursSistemi_I
             this.label1.Text = "Ders";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.etudeDetail);
-            this.groupBox2.Controls.Add(this.cancelCheckBox);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Location = new System.Drawing.Point(467, 24);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(384, 239);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            // 
-            // etudeDetail
-            // 
-            this.etudeDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.etudeDetail.Location = new System.Drawing.Point(106, 172);
-            this.etudeDetail.Name = "etudeDetail";
-            this.etudeDetail.Size = new System.Drawing.Size(180, 37);
-            this.etudeDetail.TabIndex = 8;
-            this.etudeDetail.Text = "Etüt Detay";
-            this.etudeDetail.UseVisualStyleBackColor = true;
-            // 
-            // cancelCheckBox
-            // 
-            this.cancelCheckBox.AutoSize = true;
-            this.cancelCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cancelCheckBox.Location = new System.Drawing.Point(130, 128);
-            this.cancelCheckBox.Name = "cancelCheckBox";
-            this.cancelCheckBox.Size = new System.Drawing.Size(62, 26);
-            this.cancelCheckBox.TabIndex = 7;
-            this.cancelCheckBox.Text = "İptal";
-            this.cancelCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(16, 127);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(68, 22);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Durum:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(126, 34);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 22);
-            this.label8.TabIndex = 5;
-            this.label8.Text = "NULL";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(126, 78);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 22);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "NULL";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(18, 78);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(66, 22);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "Soyad:";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(47, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 22);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Ad:";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.CourseDataGridView);
@@ -265,6 +187,71 @@ namespace KursSistemi_I
             this.CourseDataGridView.Name = "CourseDataGridView";
             this.CourseDataGridView.Size = new System.Drawing.Size(833, 233);
             this.CourseDataGridView.TabIndex = 0;
+            this.CourseDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CourseDataGridView_CellClick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(32, 102);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 22);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Öğrenci:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // etudeGive
+            // 
+            this.etudeGive.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.etudeGive.Location = new System.Drawing.Point(106, 172);
+            this.etudeGive.Name = "etudeGive";
+            this.etudeGive.Size = new System.Drawing.Size(180, 37);
+            this.etudeGive.TabIndex = 8;
+            this.etudeGive.Text = "Etüt Ver";
+            this.etudeGive.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(32, 63);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(75, 22);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Etüt No:";
+            // 
+            // EtudeID
+            // 
+            this.EtudeID.Enabled = false;
+            this.EtudeID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.EtudeID.Location = new System.Drawing.Point(127, 60);
+            this.EtudeID.Margin = new System.Windows.Forms.Padding(2);
+            this.EtudeID.Name = "EtudeID";
+            this.EtudeID.Size = new System.Drawing.Size(168, 26);
+            this.EtudeID.TabIndex = 11;
+            // 
+            // studentEtudeComBox
+            // 
+            this.studentEtudeComBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.studentEtudeComBox.FormattingEnabled = true;
+            this.studentEtudeComBox.Location = new System.Drawing.Point(116, 102);
+            this.studentEtudeComBox.Name = "studentEtudeComBox";
+            this.studentEtudeComBox.Size = new System.Drawing.Size(198, 28);
+            this.studentEtudeComBox.TabIndex = 12;
+            this.studentEtudeComBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.studentEtudeComBox);
+            this.groupBox5.Controls.Add(this.EtudeID);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Controls.Add(this.etudeGive);
+            this.groupBox5.Controls.Add(this.label6);
+            this.groupBox5.Location = new System.Drawing.Point(467, 24);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(384, 239);
+            this.groupBox5.TabIndex = 1;
+            this.groupBox5.TabStop = false;
             // 
             // AddCourseForm
             // 
@@ -273,17 +260,17 @@ namespace KursSistemi_I
             this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(869, 641);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox1);
             this.Name = "AddCourseForm";
             this.Text = "AddCourseForm";
             this.Load += new System.EventHandler(this.AddCourseForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CourseDataGridView)).EndInit();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -300,15 +287,14 @@ namespace KursSistemi_I
         private System.Windows.Forms.ComboBox teacherNameComBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button createEtude;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button etudeDetail;
-        private System.Windows.Forms.CheckBox cancelCheckBox;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView CourseDataGridView;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button etudeGive;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox EtudeID;
+        private System.Windows.Forms.ComboBox studentEtudeComBox;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

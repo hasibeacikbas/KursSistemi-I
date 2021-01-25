@@ -25,5 +25,38 @@ namespace KursSistemi_I
         public virtual Lesson Lesson { get; set; }
         public virtual Student Student { get; set; }
         public virtual Teacher Teacher { get; set; }
+
+        //public int ID
+        //{
+        //    get { return CourseID; }
+        //    set { CourseID = value; }
+        //}
+        //public Nullable<byte> DERS
+        //{
+        //    get { return CourseLessonID; }
+        //    set { CourseLessonID = value; }
+        //}
+        //public Nullable<byte> OGRETMEN
+        //{
+        //    get { return CourseTeacherID; }
+        //    set { CourseTeacherID = value; }
+        //}
+        //public Nullable<short> OGRENCI
+        //{
+        //    get { return CourseStudentID; }
+        //    set { CourseStudentID = value; }
+        //}
+        //public string TARIH
+        //{
+        //    get { return Date; }
+        //    set { Date = value; }
+        //}
+        //public string SAAT
+        //{
+        //    get { return Time; }
+        //    set { Time = value; }
+        //}
+        
+
     }
 }
